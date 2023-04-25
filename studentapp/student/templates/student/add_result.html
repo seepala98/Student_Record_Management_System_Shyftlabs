@@ -1,0 +1,10 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+    <h2>Add New Result</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Result">
+    </form>
+{% endblock %}

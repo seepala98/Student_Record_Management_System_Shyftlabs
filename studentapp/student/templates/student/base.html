@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Student Record Management System{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Student Record Management System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'student:home' %}">Home</a></li>
+			<li><a href="{% url 'student:student_list' %}">Student List</a></li>
+			<li><a href="{% url 'student:add_student' %}">Add Student</a></li>
+            <li><a href="{% url 'student:add_course' %}">Add Course</a></li>
+            <li><a href="{% url 'student:course_list' %}">Course List</a></li>
+            <li><a href="{% url 'student:add_result' %}">Add Result</a></li>
+            <li><a href="{% url 'student:result_list' %}">Result List</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

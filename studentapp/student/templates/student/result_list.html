@@ -1,0 +1,27 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+    <h2>Result List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Course Name</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.student.full_name }}</td>
+                    <td>{{ result.course.course_name }}</td>
+                    <td>{{ result.score }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No results found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

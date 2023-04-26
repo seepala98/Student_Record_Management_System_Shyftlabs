@@ -1,26 +1,73 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>{% block title %}Student Record Management System{% endblock %}</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}Student Record Maintainance{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    {% block extra_css %}{% endblock %}
 </head>
+
 <body>
-    <header>
-        <h1>Student Record Management System</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'student:home' %}">Home</a></li>
-			<li><a href="{% url 'student:student_list' %}">Student List</a></li>
-			<li><a href="{% url 'student:add_student' %}">Add Student</a></li>
-            <li><a href="{% url 'student:add_course' %}">Add Course</a></li>
-            <li><a href="{% url 'student:course_list' %}">Course List</a></li>
-            <li><a href="{% url 'student:add_result' %}">Add Result</a></li>
-            <li><a href="{% url 'student:result_list' %}">Result List</a></li>
-        </ul>
-    </nav>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-inline bg-light sidebar collapse">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".sidebar" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:home' %}">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:student_list' %}">
+                                Student List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:add_student' %}">
+                                Add Student
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:add_course' %}">
+                                Add Course
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:course_list' %}">
+                                Course List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:add_result' %}">
+                                Add Result
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student:result_list' %}">
+                                Results List
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    {% block extra_js %}{% endblock %}
 </body>
+
 </html>

@@ -22,7 +22,7 @@ class AddStudentView(View):
             student = form.save(commit=False)
             student.save()
             messages.success(request, 'Student added successfully')
-            return redirect('student:student_list')
+            return redirect('student:add_student')
         else:
             messages.error(request, 'Please correct the errors below')
         return render(request, self.template_name, {'form': form})

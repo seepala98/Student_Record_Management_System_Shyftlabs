@@ -21,6 +21,14 @@ class StudentForm(forms.ModelForm):
         if age < 10:
             raise forms.ValidationError('Students must be at least 10 years old')
         return dob
+
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get('first_name')
+        family_name = cleaned_data.get('family_name')
+        if first_name == family_name:
+            raise ValidationError('First name and family name cannot be the same')
+        return cleaned_data
     
 class CourseForm(forms.ModelForm):
     class Meta:

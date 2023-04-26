@@ -1,8 +1,14 @@
 {% extends 'student/base.html' %}
 
 {% block content %}
-    <h2>Result List</h2>
-    <table>
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h2>Result List</h2>
+            </div>
+            <div class="card-body">
+    <table class="table">
         <thead>
             <tr>
                 <th>Student Name</th>
@@ -24,4 +30,8 @@
             {% endfor %}
         </tbody>
     </table>
+    </div>
+    </div>
+</div>
+</div>  
 {% endblock %}
